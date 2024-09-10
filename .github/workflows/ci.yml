@@ -25,7 +25,7 @@ jobs:
       run: npm run setup  
 
     - name: ▶️ Copy to document root
-      run: cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/
+      run: sudo cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/
 
     - name: ▶️ chown
       run: sudo chown ubuntu:ubuntu /var/testing-react-apps

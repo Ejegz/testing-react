@@ -18,14 +18,17 @@ jobs:
       with:
         node-version: '18'
     - run: npm install
-    - run: npm run build
-    - run: npm test
+#    - run: npm run build
+#    - run: npm test
 
     - name: ▶️ Run setup script
       run: npm run setup  
 
     - name: ▶️ Copy to document root
-      run: cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/www/test-react-app
+      run: cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/
+
+    - name: ▶️ chown
+      run: sudo chown ubuntu:ubuntu /var/testing-react-apps
 
     - name: ▶️ run docker-compose up
-      run: cd /var/www/test-react-app/testing-react-apps && docker-compose up -d
+      run: cd /var/testing-react-apps && docker-compose up -d

@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: test-react-app
 
     steps:
     - uses: actions/checkout@v2
@@ -24,14 +24,14 @@ jobs:
     - name: ▶️ Run setup script
       run: npm run setup 
 
-##    - name: ▶️ Copy to document root
-##      run: sudo cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/www/react-app
+    - name: ▶️ Copy to document root
+      run: sudo cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/www/react-app
 
-##    - name: ▶️ chown
-##      run: sudo chown ubuntu:ubuntu /var/www/react-app
+#    - name: ▶️ chown
+#      run: sudo chown ubuntu:ubuntu /var/www/react-app
 
-##    - name: ▶️ stop existing and run new app
-##      run: 
+    - name: ▶️ stop existing and run new app
+      run: pm2 stop testing-react-applications-workshop || true && pm2 delete testing-react-applications-workshop || true &&  pm2 start npm --name testing-react-applications-workshop -- -p 3000 || pm2 restart testing-react-applications-workshop      
 
 
 

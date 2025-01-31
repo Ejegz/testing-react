@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: test-react-app
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -22,13 +22,18 @@ jobs:
 #    - run: npm test
 
     - name: ▶️ Run setup script
-      run: npm run setup  
+      run: npm run setup 
 
-    - name: ▶️ Copy to document root
-      run: sudo cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/
+##    - name: ▶️ Copy to document root
+##      run: sudo cp -r ~/test-react-app/work/testing-react-apps/testing-react-apps /var/www/react-app
 
-    - name: ▶️ chown
-      run: sudo chown ubuntu:ubuntu /var/testing-react-apps
+##    - name: ▶️ chown
+##      run: sudo chown ubuntu:ubuntu /var/www/react-app
 
-    - name: ▶️ run docker-compose up
-      run: cd /var/testing-react-apps && docker-compose up -d
+##    - name: ▶️ stop existing and run new app
+##      run: 
+
+
+
+ #   - name: ▶️ run docker-compose up
+ #     run: cd /var/testing-react-apps && docker-compose up -d
